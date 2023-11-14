@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+        <div>
+            <lightning-dual-listbox name="languages"
+                                    label="Select Languages"
+                                    source-label="Available"
+                                    selected-label="Selected"
+                                    field-level-help="Select your preferred languages"
+                                    options={lstOptions}
+                                    value={lstSelected}
+                                    onchange={handleChange}>
+            </lightning-dual-listbox>
+            <br/>
+            <template if:true={lstSelected}>
+                <strong>You Selected: </strong>
+                <template for:each={lstSelected} for:item="sel">
+                    <p key={sel}>{sel}</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
